@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Examinations - KLE Question Bank</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a href="index.html" class="navbar-brand mb-0 h1">
+            <img class="d-inline-block align-top" src="images/KTech-wide.png" alt="KTech-wide" width="255" height="55">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a href="index.html" class="nav-link active">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="#" class="nav-link active">
+                        Rubrics
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="assessments.html" class="nav-link active">
+                        Assessments
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="profile.html" class="nav-link active">
+                        Profile
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2>University Examinations</h2>
+        <div class="row">
+            <!-- Create a tab for each semester -->
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Semester 1</h5>
+                        <button class="btn btn-primary" onclick="toggleSemester('semester1')">Toggle
+                            Assessments</button>
+                        <!-- Create sub-divisions for subjects within Semester 1 -->
+                        <div id="semester1" style="display: none;">
+                            <div class="form-group">
+                                <h6>Subject 1</h6>
+                                <button class="btn btn-primary" onclick="toggleSubjects('subject1')">Toggle
+                                    Subjects</button>
+                                <div id="subject1" style="display: none;">
+                                    <h6 class="ISA">In-Semester Assessments</h6>
+                                    <input type="file" accept=".pdf, .doc, .docx" id="subject1InSemester"
+                                        class="form-control-file" multiple>
+                                    <button class="btn btn-primary mt-2"
+                                        onclick="uploadFiles('subject1InSemester', 'subject1InSemesterList')">Upload
+                                        Files</button>
+                                    <div id="subject1InSemesterList"></div>
+                                    <h6 class="ESA">End-Semester Assessments</h6>
+                                    <input type="file" accept=".pdf, .doc, .docx" id="subject1EndSemester"
+                                        class="form-control-file" multiple>
+                                    <button class="btn btn-primary mt-2"
+                                        onclick="uploadFiles('subject1EndSemester', 'subject1EndSemesterList')">Upload
+                                        Files</button>
+                                    <div id="subject1EndSemesterList"></div>
+                                </div>
+                                <h6>Subject 2</h6>
+                                <button class="btn btn-primary" onclick="toggleSubjects('subject2')">Toggle
+                                    Subjects</button>
+                                <div id="subject2" style="display: none;">
+                                    <h6>In-Semester Assessments</h6>
+                                    <input type="file" accept=".pdf, .doc, .docx" id="subject2InSemester"
+                                        class="form-control-file" multiple>
+                                    <button class="btn btn-primary mt-2"
+                                        onclick="uploadFiles('subject2InSemester', 'subject2InSemesterList')">Upload
+                                        Files</button>
+                                    <div id="subject2InSemesterList"></div>
+                                    <h6>End-Semester Assessments</h6>
+                                    <input type="file" accept=".pdf, .doc, .docx" id="subject2EndSemester"
+                                        class="form-control-file" multiple>
+                                    <button class="btn btn-primary mt-2"
+                                        onclick="uploadFiles('subject2EndSemester', 'subject2EndSemesterList')">Upload
+                                        Files</button>
+                                    <div id="subject2EndSemesterList"></div>
+                                </div>
+                                <!-- Add more subjects as needed -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Create similar tabs for other semesters -->
+            <!-- Add more semesters as needed -->
+        </div>
+    </div>
+
+    <script>
+        // Use arrays to store uploaded files
+        const uploadedFiles = {
+            subject1InSemester: [],
+            subject1EndSemester: [],
+            subject2InSemester: [],
+            subject2EndSemester: []
+            // Add more subjects as needed
+        };
+
+        function toggleSemester(semesterId) {
+            const semester = document.getElementById(semesterId);
+            semester.style.display = semester.style.display === "none" ? "block" : "none";
+        }
+
+        function toggleSubjects(subjectId) {
+            const subject = document.getElementById(subjectId);
+            subject.style.display = subject.style.display === "none" ? "block" : "none";
+        }
+
+
+        function uploadFiles(inputId, fileListId) {
+            const input = document.getElementById(inputId);
+            const fileListContainer = document.getElementById(fileListId);
+
+            for (let i = 0; i < input.files.length; i++) {
+                const file = input.files[i];
+
+                // Store the uploaded file in the array
+                uploadedFiles[inputId].push(file);
+
+                // Create a list item for the uploaded file with black text color
+                const listItem = document.createElement("div");
+                listItem.textContent = file.name;
+                listItem.style.color = "black";  // Set the text color to black
+
+                // Create links to view and download the file
+                const viewLink = document.createElement("a");
+                viewLink.textContent = "View";
+                viewLink.href = URL.createObjectURL(file);
+                viewLink.target = "_blank";
+                viewLink.style.marginRight = "10px";
+
+                const downloadLink = document.createElement("a");
+                downloadLink.textContent = "Download";
+                downloadLink.href = URL.createObjectURL(file);
+                downloadLink.download = file.name;
+
+                listItem.appendChild(viewLink);
+                listItem.appendChild(downloadLink);
+
+                fileListContainer.appendChild(listItem);
+            }
+
+            // Clear the input field after uploading
+            input.value = null;
+        }
+
+    </script>
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+.navbar-nav .nav-link {
+    color: darkred;
+    /* Set text color to dark red */
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+    background-color: darkred;
+    /* Set background color to dark red on hover */
+    color: white;
+    /* Set text color to white on hover */
+}
+
+.mt-4{
+    color: white;    
+}
+
+body{
+    background-color: darkred;
+}
+
+home {
+    background-image: url('images/kle-side.jpg');
+    /* Replace with your image URL */
+    background-size: cover;
+    /* Apply a blur effect to the background */
+}
+
+a{
+    align-content: right;
+}
+
+.container-form {
+    background-color: rgba(255, 255, 255, 0.881);
+    /* Add a transparent white background to the form container */
+    border-radius: 10px;
+    padding: 20px;
+    margin: 50px auto;
+    margin-top: 150px;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    align-items: center;
+}
+
+.card-title{
+    color: black;
+}
+
+.form-group, .form-control-file, .ISA, .ESA, .form-control-file, .div{
+    color: black;
+}
+
+.uploaded-file {
+    color: black;
+}
