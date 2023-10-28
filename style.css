@@ -35,7 +35,7 @@ a{
     border-radius: 10px;
     padding: 20px;
     margin: 50px auto;
-    margin-top: 150px;
+    margin-top: 90px;
     max-width: 400px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     align-items: center;
@@ -53,6 +53,11 @@ a{
     color: black;
 }
 
+.mt-4{
+    align-items: center;
+    color: black;
+}
+
 footer{
     background-color: rgb(33, 30, 30);
     position: relative;
@@ -62,4 +67,9 @@ footer{
     margin-bottom: auto;
     padding: 1.5px;
     align-content: baseline;
+}
+
+
+.profile{
+    color: white;
 }

@@ -1,15 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile - KLE Question Bank</title>
-    <link rel="icon" href="images/KTech-small.png" type="image/x-icon">
+    <title>KLE Question Bank</title>
+    <link rel="icon" type="image/png" href="images/KTech-small.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    
+    <style>
+        .container {
+            background-color: #fff;
+            /* White background */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 400px;
+        }
+
+        .card {
+            border: none;
+            background-color: #fff;
+            /* White background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            font-size: 24px;
+            color: #333;
+            /* Dark text color */
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 16px;
+            color: #666;
+            /* Gray text color */
+        }
+
+        .center-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 65vh;
+        }
+
+        .profile-image {
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .card-title {
+            align-items: center;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .prof-title {
+            color: white;
+            align-items: center;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn-danger{
+            align-items: center;
+            text-align: center;
+            margin-left: 75px;
+        }
+
+    </style>
 </head>
-<body>
+
+<body class="home">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a href="index.html" class="navbar-brand mb-0 h1">
             <img class="d-inline-block align-top" src="images/KTech-wide.png" alt="KTech-wide" width="255" height="55">
@@ -43,93 +106,35 @@
             </ul>
         </div>
     </nav>
+    <h3 class="prof-title">Welcome to your profile</h3>
+    <div class="center-card">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <div class="profile-header">
+                    <img src="images/avatar-dummy.png" width="210" height="210" class="profile-image"
+                        alt="Profile Image">
+                    <div class="profile-details">
+                        <h5 class="card-title">02FE23BCS081</h5>
+                        <p>
+                            <strong>Name:</strong> Oscar Piastri<br>
+                            <strong>Email:</strong> oscarp81@gmail.com<br>
+                            <strong>Semester:</strong> 5<br>
+                            <strong>Branch:</strong> Computer Science
+                        </p>
 
-    <div class="container mt-4">
-        <h2>User Profile</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Login</h3>
-                <form id="loginForm">
-                    <div class="form-group">
-                        <label for="loginEmail">Email</label>
-                        <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email">
-                    </div>
-                    <div class="form-group">
-                        <label for="loginPassword">Password</label>
-                        <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </form>
-            </div>
-            <div class="col-md-6">
-                <h3>Registration</h3>
-                <form id="registrationForm">
-                    <div class="form-group">
-                        <label for="regName">Full Name</label>
-                        <input type="text" class="form-control" id="regName" placeholder="Enter your full name">
-                    </div>
-                    <div class="form-group">
-                        <label for="regEmail">Email</label>
-                        <input type="email" class="form-control" id="regEmail" placeholder="Enter your email">
-                    </div>
-                    <div class="form-group">
-                        <label for="regPassword">Password</label>
-                        <input type="password" class="form-control" id="regPassword" placeholder="Enter your password">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Register</button>
-                </form>
+                    </div class="logout">
+                    <a href="index.html" class="btn btn-danger">Log Out</a>
+                </div>
             </div>
         </div>
     </div>
-
-    <script>
-        // Mock user data (replace this with your actual user data or database)
-        const users = [
-            { email: 'user1@example.com', password: 'password1' },
-            { email: 'user2@example.com', password: 'password2' },
-        ];
-    
-        // Function to perform authentication
-        function authenticateUser(email, password) {
-            for (const user of users) {
-                if (user.email === email && user.password === password) {
-                    return true; // Authentication successful
-                }
-            }
-            return false; // Authentication failed
-        }
-    
-        // Login form submission
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-    
-            if (authenticateUser(email, password)) {
-                alert('Login successful'); // Replace with your logic for a successful login
-            } else {
-                alert('Login failed'); // Replace with your logic for a failed login
-            }
-        });
-    
-        // Registration form submission
-        document.getElementById('registrationForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = document.getElementById('regName').value;
-            const email = document.getElementById('regEmail').value;
-            const password = document.getElementById('regPassword').value;
-    
-            // Mock registration (add the user to the mock database)
-            users.push({ name, email, password });
-    
-            alert('Registration successful'); // Replace with your logic for a successful registration
-        });
-    </script>
-    
+    </div>
+    </div>
 
     <!-- Include Bootstrap JS and jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
