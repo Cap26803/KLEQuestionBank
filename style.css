@@ -52,3 +52,14 @@ a{
 .uploaded-file {
     color: black;
 }
+
+footer{
+    background-color: rgb(33, 30, 30);
+    position: relative;
+    color: aliceblue;
+    align-items: center;
+    margin-top: 165px;
+    margin-bottom: auto;
+    padding: 1.5px;
+    align-content: baseline;
+}
