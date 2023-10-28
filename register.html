@@ -47,28 +47,24 @@
     </nav>
 
     <div class="container container-form">
-        <h2>Login</h2>
+        <h2>Register</h2>
         <br>
-        <form id="loginForm">
+        <form id="regiForm">
             <div class="form-group">
-                <label for="loginEmail">Email</label>
+                <label for="regiName">Name</label>
+                <input type="text" class="form-control" id="regiName" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="regiEmail">Email</label>
                 <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email">
             </div>
             <div class="form-group">
-                <label for="loginPassword">Password</label>
+                <label for="regiPassword">Password</label>
                 <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password">
             </div>
             <center>
-                <button type="submit" class="btn btn-success">Login</button>
-                <a href="register.html" class="btn btn-outline-dark">Don't have an account?</a>
+                <button type="submit" class="btn btn-success">Register</button>
+                <a href="index.html" class="btn btn-outline-dark">Already have an account?</a>
             </center>
         </form>
     </div>
-
-    <!-- Include Bootstrap JS and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-
-</html>
